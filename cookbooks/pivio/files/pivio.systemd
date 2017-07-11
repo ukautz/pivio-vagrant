@@ -1,0 +1,10 @@
+[Unit]
+Description=Pivio via Docker Compose
+After=network.target docker.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/pivio
+ExecStart=/usr/local/bin/docker-compose -f /opt/pivio/docker-compose.yml up
+ExecStop=/usr/local/bin/docker-compose -f /opt/pivio/docker-compose.yml down
+#Restart=always
